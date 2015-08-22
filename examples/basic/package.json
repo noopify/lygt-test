@@ -1,0 +1,13 @@
+{
+  "name": "demo-basic",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "./node_modules/.bin/gulp test"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "lygt": "0.0.3",
+    "lygt-test": "0.0.1"
+  }
+}
