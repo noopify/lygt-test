@@ -1,3 +1,5 @@
+var istanbul = require('browserify-istanbul');
+
 module.exports = function (config) {
 
   var root = process.cwd();
@@ -6,15 +8,20 @@ module.exports = function (config) {
   var coverage = root + '/coverage';
   var preprocessors = {};
 
-  preprocessors[sources] = ['commonjs', 'coverage'];
-  preprocessors[tests] = ['commonjs'];
+  preprocessors[sources] = ['browserify', 'coverage'];
+  preprocessors[tests] = ['browserify'];
 
   config.set({
-    frameworks: ['mocha', 'sinon-chai', 'commonjs'],
+    frameworks: ['mocha', 'sinon-chai', 'browserify'],
     files: [
-      sources,
       tests
     ],
+    browserify: {
+      debug: true,
+      transform: [
+        istanbul()
+      ]
+    },
     preprocessors: preprocessors,
     reporters: ['mocha', 'coverage'],
     browsers: ['PhantomJS'],
