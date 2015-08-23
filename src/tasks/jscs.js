@@ -5,15 +5,15 @@
 //= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 var _ = require('lodash'),
-  jshint = require('gulp-jshint'),
-  stylish = require('jshint-stylish');
+  jscs = require('gulp-jscs');
 
 var defaultOptions = {
-  as: 'lint',
+  as: 'jscs',
   from: './src/**/*.js',
-  reporter: stylish,
   plugins: {
-    jshint: {}
+    jscs: {
+      preset: 'grunt'
+    }
   }
 };
 
@@ -29,9 +29,7 @@ function init(gulp) {
 
     var task = gulp.task(opts.as, function () {
       return gulp.src(opts.from)
-        .pipe(jshint(opts.plugins.jshint))
-        .pipe(jshint.reporter(opts.reporter, {verbose: true}))
-        .pipe(jshint.reporter('fail'));
+        .pipe(jscs(opts.plugins.jscs));
     });
 
     gulp.tasks[opts.as].opts = opts;
