@@ -12,6 +12,14 @@ module.exports = function (config) {
   preprocessors[tests] = ['browserify'];
 
   config.set({
+    plugins: [
+      require('karma-mocha'),
+      require('karma-sinon-chai'),
+      require('karma-browserify'),
+      require('karma-mocha-reporter'),
+      require('karma-coverage'),
+      require('karma-phantomjs-launcher')
+    ],
     frameworks: ['mocha', 'sinon-chai', 'browserify'],
     files: [
       tests

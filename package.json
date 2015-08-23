@@ -1,6 +1,6 @@
 {
   "name": "lygt-test",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Gulp tasks for testing with browserify.",
   "main": "src/index.js",
   "repository": {
