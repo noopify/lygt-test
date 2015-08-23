@@ -3,7 +3,7 @@
 Add some tasks to lygt ( https://github.com/noopify/lygt ):
 
 - unit +coverage
-- jshint
+- jshint, jscs
 - complexity
 
 ```javascript
